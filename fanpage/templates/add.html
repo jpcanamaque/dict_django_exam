@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% load static %}
+
+{%block title%}
+Add Fan Post
+{%endblock title%}
+
+{% block contents %}
+<div class="container">
+    <h1 class="title">Add Post</h1>
+    <form action="{% url 'fanpage:post_add' %}" method="POST">
+        {% csrf_token %}
+        <table class="table">
+            {{form.as_table}}
+        </table>
+        <input type="submit" value="Save and Post" />
+    </form>
+</div>
+{% endblock contents %}
